@@ -10,6 +10,7 @@ public class Main
 		CaesarCipher cipher;
 		boolean isRunning=true;
 		Scanner scanner = new Scanner(System.in);
+		CaesarHelper helper = new CaesarHelper();
 
 		while(isRunning)
 		{
@@ -20,13 +21,13 @@ public class Main
 
 			if(choice.equals("encrypt"))
 			{
-				cipher = createCaesarFromInput();
+				cipher = helper.createCaesarFromInput();
 				System.out.println("Encrypted Value: "+cipher.encryptedValue());
 			}
 			else if(choice.equals("decrypt"))
 			{
-				cipher=createCaesarFromInput();
-				System.out.println("Decrypted Value: "+cipher.decryptedValue(value));			
+				cipher=helper.createCaesarFromInput();
+				System.out.println("Decrypted Value: "+cipher.decryptedValue(cipher.getValue()));			
 			}
 			else if(choice.equals("quit"))
 			{
@@ -43,17 +44,7 @@ public class Main
 		}
 		
 	}
+
+	
 }
 
-public CaesarCipher createCaesarFromInput()
-{
-	System.out.print("Enter String: ");
-	String value = scanner.nextLine();
-
-	System.out.print("Enter Key: ");
-	int key = scanner.nextInt();
-	scanner.nextLine();
-
-	CaesarCipher cipher = new CaesarCipher(key,value);
-	return cipher;
-}
