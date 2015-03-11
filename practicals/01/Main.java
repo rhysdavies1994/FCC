@@ -27,7 +27,7 @@ public class Main
 			else if(choice.equals("decrypt"))
 			{
 				cipher=helper.createCaesarFromInput();
-				System.out.println("Decrypted Value: "+cipher.decryptedValue(cipher.getValue()));			
+				System.out.println("Decrypted Value: "+cipher.decryptedValue());			
 			}
 			else if(choice.equals("quit"))
 			{
